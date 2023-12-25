@@ -1,0 +1,19 @@
+image: ruby:3.1-node
+
+stages:
+  - build
+
+before_script:
+  - gem install bundler
+
+build:
+  script:
+    - npm install
+    - bundle install
+
+deploy:
+  script:
+    - apt update -y
+    - apt install nodejs -y
+    - npm install
+    - npm start
